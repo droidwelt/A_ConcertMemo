@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.droidwelt.concertmemo"
+    android:installLocation="auto"
+    android:versionCode="303"
+    android:versionName="3.03">
+
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!--     android:theme="@android:style/Theme.Holo.Wallpaper.NoTitleBar"  -->
+    <application
+        android:name="ru.droidwelt.concertmemo.WMA"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/s_app_name"
+        android:largeHeap="true"
+        android:logo="@drawable/ic_launcher"
+        android:theme="@style/Theme.Concertmemo"
+        android:fullBackupContent="true">
+        <activity
+            android:name="ru.droidwelt.concertmemo.Start_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/StartTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.droidwelt.concertmemo.Import_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+                <data android:mimeType="application/*" />
+                <data android:pathPattern=".cmde" />
+                <data android:pathPattern=".*\\.cmde" />
+                <data android:pathPattern=".*\\..*\\.cmde" />
+                <data android:pathPattern=".*\\..*\\..*\\.cmde" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.cmde" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.cmde" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.droidwelt.concertmemo.Main_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.Edit_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.EditPict_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.OrderPic_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.View_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.ViewPict_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.Help_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.About_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.InfoClub_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.ImportInfo_Activity"
+            android:label="@string/s_wait"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.ChoicePict_Activity"
+            android:label="@string/s_app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
+        <activity
+            android:name="ru.droidwelt.concertmemo.Pref_Activity"
+            android:label="@string/s_settings"
+            android:screenOrientation="portrait" />
+
+        <!--  -->
+        <receiver
+            android:name=".MyProvider"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/s_app_name">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_metadata" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".MyService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- -->
+    </application>
+
+</manifest>
